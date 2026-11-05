@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SRPow — Home Energy Storage &amp; Off-grid Power Solutions</title>
+<meta name="description" content="SRPow (Shenzhen Resource Power Tech Co., Ltd.) designs safe, reliable and powerful home energy storage and off-grid power solutions. Explore Polaris HESS, off-grid inverters and the SRP-5000U rack battery.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D1B2E'/%3E%3Cpath d='M36 10 L20 36 h10 l-4 18 L44 28 h-11 z' fill='%23F5A623'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Montserrat:wght@500;600;700;800&amp;display=swap">
+<style>
+  :root{
+    --ink:#0D1B2E; --blue:#295195; --blue-soft:#3E7CB1; --orange:#F5A623;
+    --warm:#FAF9F7; --white:#FFFFFF; --text:#3A3A3A; --muted:#6C737C;
+    --line:#E3E6EB; --shadow:0 1px 2px rgba(13,27,46,.06), 0 8px 24px rgba(13,27,46,.06);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+  body{
+    margin:0; color:var(--text); background:var(--warm);
+    font-family:Montserrat,"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
+  h1,h2,h3{color:var(--ink); line-height:1.15; font-weight:800; margin:0}
+  p{margin:0}
+  a{color:var(--blue)}
+  .section{padding:72px 0}
+  .sec-head{margin-bottom:40px}
+  .eyebrow{
+    display:flex; align-items:center; gap:10px; color:var(--blue); font-weight:700;
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:14px;
+  }
+  .eyebrow::before{content:""; width:26px; height:3px; background:var(--orange); border-radius:2px}
+  .sec-head h2{font-size:clamp(26px,4vw,38px); letter-spacing:-.01em}
+  .sec-head .sub{margin-top:12px; color:var(--muted); max-width:640px; font-size:15px}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 26px; border-radius:8px; font-weight:700; font-size:15px;
+    text-decoration:none; border:0; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--orange); color:var(--ink)}
+  .btn-primary:hover{box-shadow:0 8px 20px rgba(245,166,35,.35)}
+  .btn-ghost{background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,.55)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn-blue{background:var(--blue); color:var(--white)}
+  .btn-blue:hover{box-shadow:0 8px 20px rgba(41,81,149,.35)}
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(13,27,46,.92); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08);
+    transition:background .2s ease;
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+  .brand-mark{
+    width:34px; height:34px; border-radius:8px; background:var(--orange);
+    display:grid; place-items:center; font-weight:800; color:var(--ink); font-size:16px;
+  }
+  .brand-name{font-size:20px; font-weight:800; color:var(--white); letter-spacing:.02em}
+  .brand-name sup{color:var(--orange); font-size:10px; font-weight:700; top:-.9em}
+  .nav-links{display:none; align-items:center; gap:28px}
+  .nav-links a{color:rgba(255,255,255,.85); text-decoration:none; font-size:14px; font-weight:600}
+  .nav-links a:hover{color:var(--orange)}
+  .nav-cta{display:none}
+  .nav-toggle{
+    background:transparent; border:1px solid rgba(255,255,255,.25); color:var(--white);
+    width:42px; height:38px; border-radius:6px; display:grid; place-items:center; cursor:pointer;
+  }
+  .nav-toggle svg{width:20px; height:20px}
+  .mobile-menu{
+    display:none; background:var(--ink); padding:14px 20px 20px; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block; color:rgba(255,255,255,.85); text-decoration:none; padding:11px 0; font-weight:600; font-size:15px; border-bottom:1px solid rgba(255,255,255,.08)}
+  .mobile-menu a:last-child{border-bottom:0}
+  @media (min-width: 900px){
+    .nav-links{display:flex}
+    .nav-cta{display:inline-flex; padding:9px 18px; font-size:13px}
+    .nav-toggle{display:none}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative; background:var(--ink); color:var(--white);
+    padding:132px 0 72px; overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0; background-size:cover; background-position:center 62%;
+    opacity:.5;
+  }
+  .hero-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(100deg, rgba(13,27,46,.94) 12%, rgba(13,27,46,.62) 55%, rgba(13,27,46,.32) 100%)}
+  .hero-inner{position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:0 20px}
+  .hero-kicker{
+    display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--orange); margin-bottom:20px;
+  }
+  .hero-kicker::before{content:""; width:22px; height:3px; background:var(--orange); border-radius:2px}
+  .hero h1{font-size:clamp(34px,6vw,64px); letter-spacing:-.02em; max-width:820px; color:var(--white)}
+  .hero h1 .hl{color:var(--orange)}
+  .hero-sub{margin-top:22px; max-width:600px; color:rgba(255,255,255,.88); font-size:17px}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
+  .hero-metrics{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:56px; max-width:640px;
+  }
+  .metric{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:10px; padding:16px 18px}
+  .metric b{display:block; font-size:24px; font-weight:800; color:var(--orange)}
+  .metric span{font-size:12.5px; color:rgba(255,255,255,.78); letter-spacing:.04em}
+
+  /* ===== ABOUT ===== */
+  .about-grid{display:grid; gap:36px; grid-template-columns:1fr}
+  .about-copy p{font-size:16px; margin-bottom:14px}
+  .mv{display:grid; gap:16px; grid-template-columns:1fr; margin-top:26px}
+  .mv-card{background:var(--white); border:1px solid var(--line); border-left:4px solid var(--orange); border-radius:8px; padding:18px 20px}
+  .mv-card h3{font-size:15px; font-weight:700; margin-bottom:6px; color:var(--blue)}
+  .mv-card p{font-size:14.5px; color:var(--muted)}
+  .about-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+  .stat{background:var(--white); border:1px solid var(--line); border-radius:10px; padding:18px 16px; text-align:center; box-shadow:var(--shadow)}
+  .stat b{display:block; font-size:28px; font-weight:800; color:var(--blue)}
+  .stat span{font-size:12.5px; color:var(--muted)}
+  @media (min-width: 900px){
+    .about-grid{grid-template-columns:1.25fr 1fr; align-items:start}
+    .mv{grid-template-columns:1fr 1fr}
+  }
+
+  /* ===== WHY ===== */
+  .why{background:var(--white); border-block:1px solid var(--line)}
+  .why-grid{display:grid; gap:16px; grid-template-columns:1fr}
+  .why-card{border:1px solid var(--line); border-radius:10px; padding:24px 22px; background:var(--warm); transition:border-color .15s ease, transform .15s ease}
+  .why-card:hover{border-color:var(--blue-soft); transform:translateY(-2px)}
+  .why-num{font-size:13px; font-weight:800; color:var(--orange); letter-spacing:.08em}
+  .why-card h3{font-size:17px; margin:10px 0 8px}
+  .why-card p{font-size:14px; color:var(--muted)}
+  @media (min-width: 900px){ .why-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width: 1100px){ .why-grid{grid-template-columns:repeat(4,1fr)} }
+
+  /* ===== PRODUCTS ===== */
+  .products{background:var(--warm)}
+  .product-line{margin-bottom:64px}
+  .product-line:last-child{margin-bottom:0}
+  .pline-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:26px}
+  .pline-head h3{font-size:clamp(22px,3.4vw,32px)}
+  .pline-head .tag{font-size:13px; font-weight:700; color:var(--blue); background:#E8EFF7; padding:5px 12px; border-radius:20px}
+  .hess-grid{display:grid; gap:20px; grid-template-columns:1fr}
+  .hess-card{background:var(--white); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+  .hess-media{background:#EDF1F6; display:grid; place-items:center; padding:20px}
+  .hess-media img{max-height:300px; width:auto; object-fit:contain}
+  .hess-body{padding:22px 24px}
+  .hess-body h4{font-size:18px; font-weight:800; color:var(--ink); margin-bottom:4px}
+  .hess-body .series{font-size:13px; color:var(--blue); font-weight:700; margin-bottom:14px}
+  .specs{display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; margin:16px 0}
+  .spec{display:flex; justify-content:space-between; gap:10px; border-bottom:1px dashed var(--line); padding-bottom:6px; font-size:13.5px}
+  .spec b{color:var(--ink); font-weight:700; white-space:nowrap}
+  .spec span{color:var(--muted); text-align:right}
+  .feats{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+  .feat{background:var(--warm); border:1px solid var(--line); border-radius:6px; font-size:12px; font-weight:600; color:var(--text); padding:5px 10px}
+  @media (min-width: 900px){ .hess-grid{grid-template-columns:1fr 1fr} .inv-detail{grid-template-columns:1fr 1.3fr} }
+
+  .data-table{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--white)}
+  table{width:100%; border-collapse:collapse; table-layout:fixed; min-width:640px}
+  colgroup col:nth-child(1){width:22%}
+  colgroup col:nth-child(2){width:13%}
+  colgroup col:nth-child(3){width:13%}
+  colgroup col:nth-child(4){width:13%}
+  colgroup col:nth-child(5){width:13%}
+  colgroup col:nth-child(6){width:13%}
+  colgroup col:nth-child(7){width:13%}
+  th,td{padding:12px 14px; text-align:left; font-size:13.5px; border-bottom:1px solid var(--line)}
+  th{background:var(--ink); color:var(--white); font-weight:700; font-size:12.5px; letter-spacing:.04em}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover td{background:#F3F6FA}
+  td b{color:var(--ink)}
+  .table-note{margin-top:12px; font-size:13px; color:var(--muted)}
+
+  /* topology */
+  .topo{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:24px; margin-top:26px}
+  .topo h4{font-size:16px; font-weight:800; margin-bottom:18px; color:var(--ink)}
+  .topo-flow{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap}
+  .topo-node{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:var(--warm); min-width:110px; text-align:center}
+  .topo-node b{display:block; font-size:13.5px; color:var(--ink); font-weight:700}
+  .topo-node span{font-size:11.5px; color:var(--muted)}
+  .topo-node.core{border-color:var(--blue); background:#EAF1F8}
+  .topo-node.core b{color:var(--blue)}
+  .topo-arrow{color:var(--orange); flex:0 0 auto; display:grid; place-items:center}
+  .topo-arrow svg{width:22px; height:22px}
+  .topo-modes{display:grid; gap:12px; grid-template-columns:1fr; margin-top:18px}
+  .mode{display:flex; align-items:center; gap:10px; border:1px solid var(--line); border-radius:8px; padding:12px 16px; background:var(--warm); font-size:13.5px}
+  .mode b{color:var(--blue); font-weight:700; white-space:nowrap}
+  .mode .chain{color:var(--ink); font-weight:600}
+  @media (min-width: 800px){ .topo-modes{grid-template-columns:1fr 1fr} }
+
+  /* rack battery */
+  .rack{display:grid; gap:26px; grid-template-columns:1fr}
+  .rack-media{background:#EDF1F6; border-radius:12px; overflow:hidden; display:grid; place-items:center; padding:18px}
+  .rack-media img{width:100%; max-width:520px; object-fit:contain}
+  .rack-points{display:grid; gap:12px; grid-template-columns:1fr; margin-top:18px}
+  .rack-point{border-left:3px solid var(--orange); background:var(--white); border-radius:0 8px 8px 0; padding:12px 16px; box-shadow:var(--shadow)}
+  .rack-point b{display:block; color:var(--ink); font-size:14.5px; font-weight:700}
+  .rack-point span{font-size:13px; color:var(--muted)}
+  @media (min-width: 900px){
+    .rack{grid-template-columns:1fr 1.05fr}
+    .rack-points{grid-template-columns:1fr 1fr}
+  }
+
+  /* ===== SOLUTIONS ===== */
+  .solutions{background:var(--white); border-block:1px solid var(--line)}
+  .sol-grid{display:grid; gap:14px; grid-template-columns:1fr}
+  .sol-item{display:flex; gap:14px; align-items:flex-start; border:1px solid var(--line); border-radius:10px; padding:18px 20px; background:var(--warm)}
+  .sol-ic{flex:0 0 40px; width:40px; height:40px; border-radius:9px; background:var(--blue); color:var(--white); display:grid; place-items:center}
+  .sol-ic svg{width:20px; height:20px}
+  .sol-item h3{font-size:15.5px; font-weight:700; margin-bottom:3px}
+  .sol-item p{font-size:13.5px; color:var(--muted)}
+  @media (min-width: 700px){ .sol-grid{grid-template-columns:1fr 1fr} }
+  @media (min-width: 1024px){ .sol-grid{grid-template-columns:repeat(3,1fr)} }
+  .mix{margin-top:36px; background:var(--ink); border-radius:14px; padding:26px 24px; color:var(--white)}
+  .mix h3{color:var(--white); font-size:17px; margin-bottom:18px}
+  .mix-bar{display:grid; gap:14px}
+  .mix-row .lbl{display:flex; justify-content:space-between; font-size:13px; font-weight:600; margin-bottom:6px}
+  .mix-row .lbl span{color:rgba(255,255,255,.7)}
+  .mix-track{height:10px; border-radius:6px; background:rgba(255,255,255,.12); overflow:hidden}
+  .mix-fill{height:100%; border-radius:6px; background:var(--orange)}
+  .mix-note{margin-top:14px; font-size:12px; color:rgba(255,255,255,.6)}
+
+  /* ===== APPLICATIONS ===== */
+  .apps-grid{display:grid; gap:18px; grid-template-columns:1fr}
+  .app-card{border-radius:12px; overflow:hidden; border:1px solid var(--line); background:var(--white); box-shadow:var(--shadow)}
+  .app-card img{width:100%; height:210px; object-fit:cover; object-position:center}
+  .app-card .cap{padding:16px 18px}
+  .app-card h3{font-size:16px; font-weight:800; margin-bottom:4px}
+  .app-card p{font-size:13.5px; color:var(--muted)}
+  @media (min-width: 900px){ .apps-grid{grid-template-columns:repeat(3,1fr)} }
+
+  /* ===== CERTIFICATIONS ===== */
+  .cert-wrap{display:flex; flex-wrap:wrap; gap:10px}
+  .cert-chip{background:var(--white); border:1px solid var(--line); border-radius:8px; padding:10px 16px; font-size:13.5px; font-weight:700; color:var(--blue)}
+  .cert-chip b{color:var(--ink)}
+  .cert-note{margin-top:18px; font-size:13px; color:var(--muted)}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--ink); color:var(--white)}
+  .contact h2{color:var(--white)}
+  .contact-grid{display:grid; gap:34px; grid-template-columns:1fr}
+  .contact-info p{color:rgba(255,255,255,.82); font-size:15px; margin-bottom:10px}
+  .contact-info .site{font-size:19px; font-weight:800; color:var(--orange); text-decoration:none}
+  .contact-form{display:grid; gap:14px}
+  .contact-form label{font-size:13px; font-weight:600; color:rgba(255,255,255,.85)}
+  .contact-form input,.contact-form textarea{
+    width:100%; padding:13px 14px; border-radius:8px; border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.06); color:var(--white); font-size:16px; font-family:inherit;
+  }
+  .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--orange); border-color:transparent}
+  .contact-form textarea{min-height:110px; resize:vertical}
+  .toast{
+    position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:var(--white); border:1px solid var(--orange); border-radius:10px;
+    padding:14px 22px; font-size:14px; font-weight:600; box-shadow:0 12px 32px rgba(0,0,0,.25);
+    opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease; z-index:99; max-width:88vw;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+  @media (min-width: 900px){ .contact-grid{grid-template-columns:1fr 1fr; align-items:start} }
+
+  footer{background:#081120; color:rgba(255,255,255,.65); padding:34px 0; font-size:13px}
+  .foot{display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+  .foot .brand-name{font-size:17px}
+  .foot a{color:rgba(255,255,255,.75); text-decoration:none}
+  .foot a:hover{color:var(--orange)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="SRPow home">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">SRPow<sup>®</sup></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#products">Products</a>
+      <a href="#inverters">Inverters</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#applications">Applications</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#contact">Get a Quote</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#products">Products</a>
+    <a href="#inverters">Inverters</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#applications">Applications</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('assets/hero-home.jpg')"></div>
+    <div class="hero-inner">
+      <span class="hero-kicker">SRPow · Energy Storage Expert</span>
+      <h1>Safe, clean energy for <span class="hl">every corner</span> of the world</h1>
+      <p class="hero-sub">SRPow builds off-grid stackable all-in-one home energy storage and power conversion systems — reliable, modular and plug-and-play for homes, businesses and remote areas.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#products">Explore Products</a>
+        <a class="btn btn-ghost" href="#contact">Contact Us</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric"><b>2016</b><span>Founded · Power industry</span></div>
+        <div class="metric"><b>2</b><span>R&amp;D Centers · Suzhou / Shenzhen</span></div>
+        <div class="metric"><b>2</b><span>Manufacturing bases</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">About SRPow</span>
+        <h2>Power conversion &amp; storage, engineered in-house</h2>
+        <p class="sub">SRPow (Shenzhen Resource Power Tech Co., Ltd.) focuses on power conversion and energy storage battery technology, building safe and reliable solutions for off-grid and hybrid energy systems.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>We serve homes, commercial &amp; industrial users and remote regions with complete energy systems — from hybrid and off-grid inverters to stackable lithium battery packs, backed by our own BMS, EMS and cloud monitoring.</p>
+          <div class="mv">
+            <div class="mv-card">
+              <h3>Mission</h3>
+              <p>Bring safe and clean energy to every corner of the world.</p>
+            </div>
+            <div class="mv-card">
+              <h3>Vision</h3>
+              <p>To be a global leader in safe, clean and sustainable energy solutions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat"><b>20+</b><span>Years in power &amp; storage</span></div>
+          <div class="stat"><b>3</b><span>Production bases · Shenzhen / Huizhou / Suzhou</span></div>
+          <div class="stat"><b>2</b><span>R&amp;D centers · Suzhou &amp; Shenzhen</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section class="section why" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Why SRPow</span>
+        <h2>Safe · Reliable · Powerful</h2>
+        <p class="sub">From power conversion to storage batteries, our technology and manufacturing support every energy scenario.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-num">01</span>
+          <h3>Power &amp; storage core tech</h3>
+          <p>In-house inverter and battery BMS expertise covering off-grid, grid-tied and hybrid energy scenarios.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">02</span>
+          <h3>Professional R&amp;D team</h3>
+          <p>Two R&amp;D centers in Suzhou and Shenzhen, iterating continuously on two decades of power and storage experience.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">03</span>
+          <h3>Smart management</h3>
+          <p>BMS · EMS · cloud platform — remote monitoring, data management and system maintenance in one.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-num">04</span>
+          <h3>Full-chain manufacturing</h3>
+          <p>Production bases in Huizhou and Suzhou for controlled quality, stable delivery and fast response.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section products" id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Products</span>
+        <h2>Polaris HESS Series</h2>
+        <p class="sub">Off-grid stackable all-in-one energy storage — high-frequency and line-frequency systems with expandable LiFePO₄ battery packs.</p>
+      </div>
+
+      <div class="product-line">
+        <div class="pline-head">
+          <h3>All-in-One Systems</h3>
+          <span class="tag">HF · High-frequency</span>
+        </div>
+        <div class="hess-grid">
+          <div class="hess-card">
+            <div class="hess-media"><img src="assets/product-hf.png" alt="Polaris HESS HF all-in-one 6.2 kW hybrid inverter with stackable battery" loading="lazy"></div>
+            <div class="hess-body">
+              <h4>Polaris HESS · HF</h4>
+              <span class="series">High-frequency off-grid stackable all-in-one</span>
+              <div class="specs">
+                <div class="spec"><b>Inverter Power</b><span>6.2 kW</span></div>
+                <div class="spec"><b>Expandable</b><span>5 kWh+</span></div>
+                <div class="spec"><b>Battery</b><span>51.2V / 100Ah</span></div>
+                <div class="spec"><b>Chemistry</b><span>LiFePO₄</span></div>
+              </div>
+              <div class="feats">
+                <span class="feat">Reliable &amp; Durable</span><span class="feat">Modular Design</span><span class="feat">Visual Design</span><span class="feat">Multiple Modes</span><span class="feat">Smart Management</span><span class="feat">Plug-and-Play</span>
+              </div>
+            </div>
+          </div>
+          <div class="hess-card">
+            <div class="hess-media"><img src="assets/product-lf.png" alt="Polaris HESS LF all-in-one 5 kW inverter with stackable battery" loading="lazy"></div>
+            <div class="hess-body">
+              <h4>Polaris HESS · LF</h4>
+              <span class="series">Line-frequency off-grid stackable all-in-one</span>
+              <div class="specs">
+                <div class="spec"><b>Inverter Power</b><span>5 kW</span></div>
+                <div class="spec"><b>Expandable</b><span>5 kWh+</span></div>
+                <div class="spec"><b>Design Life</b><span>15 yrs</span></div>
+                <div class="spec"><b>Chemistry</b><span>LiFePO₄</span></div>
+              </div>
+              <div class="feats">
+                <span class="feat">Hassle-free &amp; Long-lasting</span><span class="feat">Modular Design</span><span class="feat">Multiple Modes</span><span class="feat">Smart Management</span><span class="feat">Visual Design</span><span class="feat">WiFi &amp; App Monitor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-line">
+        <div class="pline-head">
+          <h3>Stackable Battery Packs</h3>
+          <span class="tag">LiFePO₄ · 8000 cycles</span>
+        </div>
+        <div style="background:#EDF1F6; border-radius:12px; padding:18px; margin-bottom:20px">
+          <img src="assets/product-battery.png" alt="Polaris HESS stackable battery packs: P-HESS B5, B10 and B16" loading="lazy" style="height:170px; width:auto; max-width:100%; margin:0 auto; object-fit:contain">
+        </div>
+        <div class="data-table">
+          <table>
+            <colgroup><col><col><col><col><col><col><col></colgroup>
+            <thead>
+              <tr>
+                <th>Model</th><th>Energy</th><th>Cell</th><th>Max Charge</th><th>Max Discharge</th><th>Cycle Life</th><th>Dimensions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>P-HESS B5</b> · 46 kg</td><td>5.12 kWh</td><td>LFP 100Ah</td><td>150 A</td><td>150 A</td><td>8000 @80% DOD</td><td>600×200×400 mm</td></tr>
+              <tr><td><b>P-HESS B10</b> · 88 kg</td><td>10.24 kWh</td><td>LFP 200Ah</td><td>150 A</td><td>150 A</td><td>8000 @80% DOD</td><td>600×200×600 mm</td></tr>
+              <tr><td><b>P-HESS B16</b> · 124 kg</td><td>16.08 kWh</td><td>LFP 314Ah</td><td>300 A</td><td>300 A</td><td>8000 @80% DOD</td><td>600×200×800 mm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="topo">
+          <h4>System topology &amp; working modes</h4>
+          <div class="topo-flow">
+            <div class="topo-node"><b>PV · Solar</b><span>photovoltaic input</span></div>
+            <span class="topo-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="topo-node core"><b>Polaris All-in-One</b><span>HF / LF inverter · stackable battery 5 kWh+ LiFePO₄</span></div>
+            <span class="topo-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="topo-node"><b>Load</b><span>home appliances</span></div>
+            <span class="topo-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <div class="topo-node"><b>Grid</b><span>utility input</span></div>
+          </div>
+          <div class="topo-modes">
+            <div class="mode"><b>Mode A · Utility-first</b><span class="chain">Grid → Battery → PV</span></div>
+            <div class="mode"><b>Mode B · Battery-first</b><span class="chain">PV → Battery → Grid</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-line" id="inverters">
+        <div class="pline-head">
+          <h3>Off-grid Inverters</h3>
+          <span class="tag">Residential single-phase · 3K / 3.6K / 5K</span>
+        </div>
+        <div class="data-table">
+          <table>
+            <colgroup><col><col><col><col><col><col><col></colgroup>
+            <thead>
+              <tr>
+                <th>Model</th><th>Rated Power</th><th>Battery</th><th>PV Charge</th><th>Surge</th><th>Parallel</th><th>Waveform</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>SRP-3KRS-F2</b></td><td>3000 W</td><td>24 Vdc</td><td>100 A</td><td>6000 VA</td><td>No</td><td rowspan="3">Pure sine wave</td></tr>
+              <tr><td><b>SRP-3.6KRS-F1</b></td><td>3600 W</td><td>48 Vdc</td><td>80 A</td><td>8000 VA</td><td>No</td></tr>
+              <tr><td><b>SRP-5KRS-F1</b></td><td>5000 W</td><td>48 Vdc</td><td>80 A</td><td>10000 VA</td><td>Up to 9</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="feats" style="margin-top:16px">
+          <span class="feat">93% peak efficiency</span><span class="feat">10 / 15 ms switch time</span><span class="feat">WiFi / App monitoring</span><span class="feat">LCD display</span><span class="feat">Li-ion &amp; lead-acid</span><span class="feat">USB · WiFi / 4G / GPRS / RS485-CAN · dry contact</span><span class="feat">IP20</span>
+        </div>
+        <div style="display:grid; gap:20px; grid-template-columns:1fr; margin-top:22px; align-items:center" class="inv-detail">
+          <div style="background:#EDF1F6; border-radius:12px; padding:20px; display:grid; place-items:center">
+            <img src="assets/product-panel.png" alt="SRPow inverter control panel with display and buttons" loading="lazy" style="height:280px; width:auto; object-fit:contain">
+          </div>
+          <ul style="margin:0; padding-left:20px; font-size:14px; color:var(--muted); line-height:2">
+            <li>Pure sine wave output · 93% peak efficiency</li>
+            <li>Battery switch-over in 10 / 15 ms keeps loads running</li>
+            <li>WiFi / App monitoring, LCD display, USB port</li>
+            <li>Supports Li-ion and lead-acid batteries</li>
+            <li>Communications: WiFi / 4G / GPRS / RS485-CAN / dry contact</li>
+            <li>IP20 enclosure · 300×450×110.5 mm</li>
+            <li>Protections: PV reverse &amp; overcurrent, battery reverse &amp; overvoltage, output short-circuit, AC surge (Type III)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="product-line" id="rack-battery">
+        <div class="pline-head">
+          <h3>SRP-5000U</h3>
+          <span class="tag">Rack-mounted home energy storage battery</span>
+        </div>
+        <div class="rack">
+          <div class="rack-media"><img src="assets/product-5000u.png" alt="SRP-5000U rack-mounted home energy storage battery with certifications" loading="lazy"></div>
+          <div>
+            <div class="specs">
+              <div class="spec"><b>System Energy</b><span>5.12 kWh</span></div>
+              <div class="spec"><b>Cycle Life</b><span>6000+ @80% EOL</span></div>
+              <div class="spec"><b>Parallel</b><span>Up to 16 units</span></div>
+              <div class="spec"><b>Usable Energy</b><span>5.0 kWh · DOD 95% (grid) / 80% (off-grid)</span></div>
+              <div class="spec"><b>Cell</b><span>LiFePO₄ · UL9540A</span></div>
+              <div class="spec"><b>Size / Weight</b><span>440×430×130 mm · 46 kg</span></div>
+              <div class="spec"><b>Communication</b><span>RS485 / RS485-CAN · dry contact</span></div>
+              <div class="spec"><b>Applications</b><span>Home PV · Data center · Telecom · Outdoor ESS</span></div>
+            </div>
+            <div class="rack-points">
+              <div class="rack-point"><b>High security</b><span>Active multi-level protection</span></div>
+              <div class="rack-point"><b>Compact design</b><span>Depth &lt; 430 mm</span></div>
+              <div class="rack-point"><b>Plug-and-play</b><span>Easy installation</span></div>
+              <div class="rack-point"><b>Economic benefits</b><span>LCOE reduced 2–8%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PART2 -->
+    </div>
+  </section>
+
+  <!-- ===== SOLUTIONS ===== -->
+  <section class="section solutions" id="solutions">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Solutions</span>
+        <h2>Energy solutions for every scenario</h2>
+        <p class="sub">A full portfolio from home storage to micro-grids, with smart BMS / EMS / cloud management.</p>
+      </div>
+      <div class="sol-grid">
+        <div class="sol-item">
+          <span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>
+          <div><h3>Residential ESS</h3><p>Home energy storage and backup for daily use and outages.</p></div>
+        </div>
+        <div class="sol-item">
+          <span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span>
+          <div><h3>C&amp;I ESS</h3><p>Commercial &amp; industrial energy storage for peak shaving and resilience.</p></div>
+        </div>
+        <div class="sol-item">
+          <span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/><circle cx="12" cy="12" r="3.5"/></svg></span>
+          <div><h3>Off-grid &amp; Micro-grid</h3><p>Standalone power for remote homes, villages and islands.</p></div>
+        </div>
+        <div class="sol-item">
+          <span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="9" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2M8 13h.01M12 13h.01M16 13h.01"/></svg></span>
+          <div><h3>Portable Power</h3><p>Lightweight portable energy for travel and field work.</p></div>
+        </div>
+        <div class="sol-item">
+          <span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M4 5v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5M8 9v6M12 9v6M16 9v6"/></svg></span>
+          <div><h3>Backup &amp; Telecom</h3><p>Emergency and telecom standby power with rapid response.</p></div>
+        </div>
+        <div class="sol-item">
+          <span class="sol-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><h3>Smart Management</h3><p>BMS · EMS · cloud platform for monitoring and operation.</p></div>
+        </div>
+      </div>
+      <div class="mix">
+        <h3>Business mix by solution type</h3>
+        <div class="mix-bar">
+          <div class="mix-row">
+            <div class="lbl"><span>C&amp;I ESS · Commercial &amp; industrial storage</span><span>40%</span></div>
+            <div class="mix-track"><div class="mix-fill" style="width:40%"></div></div>
+          </div>
+          <div class="mix-row">
+            <div class="lbl"><span>Residential ESS · Home storage</span><span>30%</span></div>
+            <div class="mix-track"><div class="mix-fill" style="width:30%"></div></div>
+          </div>
+          <div class="mix-row">
+            <div class="lbl"><span>Off-grid &amp; Micro-grid</span><span>30%</span></div>
+            <div class="mix-track"><div class="mix-fill" style="width:30%"></div></div>
+          </div>
+        </div>
+        <p class="mix-note">Business mix estimated by application type across global markets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPLICATIONS ===== -->
+  <section class="section" id="applications">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Applications</span>
+        <h2>Where SRPow systems work</h2>
+      </div>
+      <div class="apps-grid">
+        <div class="app-card">
+          <img src="assets/app-home.jpg" alt="Wall-mounted SRPow energy storage inside a modern home" loading="lazy">
+          <div class="cap"><h3>Home Energy Storage</h3><p>Solar self-consumption and home backup, monitored from your phone.</p></div>
+        </div>
+        <div class="app-card">
+          <img src="assets/app-outdoor.jpg" alt="Portable SRPow power in an outdoor camping scene at night" loading="lazy">
+          <div class="cap"><h3>Emergency Backup</h3><p>Reliable standby power for outages, camping and field use.</p></div>
+        </div>
+        <div class="app-card">
+          <img src="assets/app-ci.jpg" alt="SRPow control cabinet with rooftop solar panels on a city building" loading="lazy">
+          <div class="cap"><h3>C&amp;I Energy Storage</h3><p>Rooftop PV and commercial storage for buildings and facilities.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section class="section why" id="certifications">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Certifications</span>
+        <h2>Compliant with EU &amp; international standards</h2>
+        <p class="sub">Our products meet mainstream European and international storage and grid-connection safety standards.</p>
+      </div>
+      <div class="cert-wrap">
+        <span class="cert-chip">EMC</span>
+        <span class="cert-chip">G98 / G99</span>
+        <span class="cert-chip">IEC 62109</span>
+        <span class="cert-chip">NS097</span>
+        <span class="cert-chip">IEC 61727</span>
+        <span class="cert-chip">VDE 4105</span>
+        <span class="cert-chip">IEC 61000</span>
+        <span class="cert-chip">UN38.3</span>
+        <span class="cert-chip">IEC 62619</span>
+        <span class="cert-chip">and more…</span>
+      </div>
+      <p class="cert-note">Certification status per model — please confirm with the SRPow team for your target market.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Contact</span>
+        <h2>Let’s power your next project</h2>
+        <p class="sub" style="color:rgba(255,255,255,.7)">Global sales &amp; service network with local technical support and responsive after-sales.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><b style="color:#fff">Shenzhen Resource Power Tech Co., Ltd.</b></p>
+          <p>Shenzhen · China（Headquarters）</p>
+          <p>Official website:</p>
+          <a class="site" href="https://www.srpowtech.com" target="_blank" rel="noopener">www.srpowtech.com</a>
+          <p style="margin-top:22px">EU warehouse · DDP service · 2–5 days delivery options available for select markets.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <label for="cfName">Name</label>
+          <input id="cfName" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          <label for="cfEmail">Email</label>
+          <input id="cfEmail" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+          <label for="cfMsg">Message</label>
+          <textarea id="cfMsg" name="message" placeholder="Tell us about your project…" required></textarea>
+          <button class="btn btn-primary" type="submit" style="justify-self:start">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <span class="brand-name">SRPow<sup>®</sup></span>
+      <span> · Shenzhen Resource Power Tech Co., Ltd.</span>
+    </div>
+    <div>© 2026 SRPow · <a href="https://www.srpowtech.com" target="_blank" rel="noopener">www.srpowtech.com</a></div>
+    <div>Safe · Reliable · Powerful</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (function(){
+    var header = document.querySelector('header');
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+
+    function onScroll(){
+      if (window.scrollY > 8) {
+        header.style.background = 'rgba(13,27,46,.96)';
+        header.style.borderBottomColor = 'rgba(255,255,255,.14)';
+      } else {
+        header.style.background = 'rgba(13,27,46,.92)';
+        header.style.borderBottomColor = 'rgba(255,255,255,.08)';
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    toggle.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+    });
+
+    var toast = document.getElementById('toast');
+    var toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 3800);
+    }
+
+    var form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('cfName').value.trim();
+      var email = document.getElementById('cfEmail').value.trim();
+      var msg = document.getElementById('cfMsg').value.trim();
+      if (!name || !email || !msg) { showToast('Please fill in all fields.'); return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showToast('Please enter a valid email address.'); return; }
+      showToast('Thank you, ' + name + ' — our team will get back to you soon.');
+      form.reset();
+    });
+  })();
+</script>
+</body>
+</html>
